@@ -16,9 +16,9 @@ import com.programcreek.helloworld.form.InputForm;
 @Controller
 public class HelloWorldController {
 	String message = "Welcome to Spring MVC.";
-	@RequestMapping(value="/hello", method=RequestMethod.GET)
-	public String showMessage(@ModelAttribute InputForm inputForm, Model model) {
-		System.out.println("Inside hello controller!");
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public String doLogin(@ModelAttribute InputForm inputForm, Model model) {
+		System.out.println("Inside login controller!");
 		String username = inputForm.getUsername();
 		String password = inputForm.getPassword();
 		
@@ -41,7 +41,15 @@ public class HelloWorldController {
 				System.out.println("Password didn't match: got='" + password + "' expected:'" + currUser.getPassword() + "'");
 			}
 		}
+		String errorString = "Incorect credentials.";
+		model.addAttribute("error",errorString);
 		return "index";
 		
-	}	
+	}
+	
+	@RequestMapping(value={"login/**", "/login**"}, method=RequestMethod.GET)
+	public String doIgnore(@ModelAttribute InputForm inputForm, Model model) {
+		System.out.println("Inside Ignore controller");
+		return "index";
+	}
 }
