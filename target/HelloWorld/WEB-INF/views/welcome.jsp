@@ -9,7 +9,7 @@
 </head>
 <body>
 	<center>
-		Hello Mr. ${inputForm.name}, hope to see you in near future someweher around ${inputForm.address}
+		Hello Mr. ${userDto.fullname}, hope to see you in near future somewhere around ${userDto.address}
 	</center>
 </body>
 </html>

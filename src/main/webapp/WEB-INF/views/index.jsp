@@ -14,11 +14,11 @@
 			<a href="hello?name=Eric">Click Here</a>
 		</h3>
 		<form:form id="form" method="GET" modelAttribute="inputForm" action="hello">
-			Name:
-			<form:input path="name"/>
-			Address:
-			<form:input path="address" />
-			<input name="" type="submit" value="Save">
+			username:
+			<form:input path="username"/>
+			password:
+			<form:input path="password" />
+			<input name="" type="submit" value="Login">
 		</form:form>
 	</center>
 </body>
